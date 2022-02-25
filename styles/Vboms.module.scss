@@ -1,0 +1,132 @@
+@use 'colors';
+
+@mixin animate($animation, $duration, $times) {
+	animation: $animation $duration $times;
+}
+
+@mixin keyframes($name) {
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+.header {
+	height: 20vh;
+	width: 100vw;
+	background-color: colors.$tertiaryLight;
+	border-bottom: 3px colors.$secondaryDark solid;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	padding-left: 8vw;
+	padding-right: 5vw;
+	position: relative;
+
+	&.loading {
+		@include keyframes(loading) {
+			0% {
+				border-color: colors.$primary;
+			}
+			50% {
+				border-color: colors.$secondaryDark;
+			}
+			100% {
+				border-color: colors.$primary;
+			}
+		}
+		@include animate(loading, 1s, infinite);
+	}
+
+	.logo {
+		font-size: 30px;
+		font-family: 'Courier New', monospace;
+		color: colors.$secondaryDark;
+		font-weight: bold;
+		min-width: 200px;
+		width: 15vw;
+		display: flex;
+		justify-content: center;
+		padding: 5px 2px 2px 5px;
+		border: 0.5px colors.$secondaryDark solid;
+	}
+
+	.logo:hover {
+		cursor: pointer;
+	}
+
+	.navBar {
+		width: 60vw;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		padding-top: 20px;
+
+		ul {
+			display: flex;
+			justify-content: space-evenly;
+			list-style: none;
+			width: 40vw;
+		}
+
+		.navLinks {
+			font-size: 13px;
+			color: colors.$secondaryDark;
+		}
+
+		.navLinks:hover {
+			text-decoration: underline;
+		}
+
+		.login {
+			color: colors.$secondaryMedDark;
+			background-color: transparent;
+			border: none;
+			font-size: 11px;
+			position: absolute;
+			margin-bottom: 70px;
+			right: 10vw;
+		}
+
+		.login:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		.logout:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	}
+}
+
+.app {
+	min-height: 40vh;
+}
+
+.footer {
+	height: 40vh;
+	width: 100vw;
+	background-color: colors.$tertiaryLight;
+	border-top: 3px colors.$secondaryDark solid;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	bottom: 0;
+
+	&.loading {
+		@include keyframes(loading) {
+			0% {
+				border-color: colors.$primary;
+			}
+			50% {
+				border-color: colors.$secondaryDark;
+			}
+			100% {
+				border-color: colors.$primary;
+			}
+		}
+		@include animate(loading, 1s, infinite);
+	}
+}
