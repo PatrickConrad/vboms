@@ -1,6 +1,6 @@
 import Link from "next/link";
 import authComponents from "./auth";
-import setNav from "utils/frontend/helpers/setNav";
+import setNav from "utils/helpers/setNav";
 import { useContext, useEffect, useState } from "react";
 import { ContextConsumer } from "state/RootContext";
 import { useRouter } from "next/router";
@@ -18,8 +18,8 @@ function Nav({app, styles}) {
     }, [app])
     return (
         <div  className={styles.global.navBar}>
-            <AuthBtn app={app} styles={styles}/>
             {navBar}
+            <AuthBtn app={app} styles={styles}/>
         </div>
     );
 }

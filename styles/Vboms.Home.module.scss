@@ -1,0 +1,59 @@
+@use '_colors';
+
+.bannerArea {
+	height: 60vh;
+	width: 100vw;
+	position: relative;
+
+	#bannerVideo {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		z-index: 2;
+	}
+
+	.bannerVideoOverlay {
+		z-index: 4;
+		height: 100%;
+		width: 100%;
+		background-color: rgba($color: #0000, $alpha: 0.2);
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		.leadBannerTextBox {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding-top: 40px;
+
+			.leadBannerText {
+				color: white;
+				font-weight: bold;
+				font-size: 30px;
+			}
+		}
+	}
+}
+
+.homeBody {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	:nth-child(odd) {
+		background-color: #ffffff;
+	}
+
+	:nth-child(even) {
+		background-color: colors.$quaternaryLight;
+	}
+
+	.strip {
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+	}
+}

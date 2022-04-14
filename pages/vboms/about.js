@@ -1,10 +1,11 @@
+import WhatIsVboms from "components/page-components/vboms/homePageComponents/WhatIsVboms";
 import { setLayout } from "layouts";
 
-function About() {
+function About({styles}) {
     return (
-        <>
-            <h1>About V.B.O.M.S.</h1>
-        </>
+        <div className={styles.vboms.pages.about.body}>
+            <WhatIsVboms styles={styles} app={"vboms"}/>
+        </div>
     );
 }
 const metaData={

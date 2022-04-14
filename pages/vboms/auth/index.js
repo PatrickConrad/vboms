@@ -1,17 +1,19 @@
-import { setLayout } from "layouts";
+import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
+import { ContextConsumer } from "state/RootContext";
 
-function Auth() {
+function Index() {
+    const router = useRouter();
+    const {state, actions} = useContext(ContextConsumer);
+    useEffect(()=>{
+        state.vboms.auth.isAuth ? router.push('/vboms/authorized') : null
+        router.push(`${router.route}/login`);
+    }, [])
     return (
         <div>
-            <h1>Auth Page</h1>
+
         </div>
     );
 }
 
-const metaData = {
-    title: "VBOMS Login/Sign-up",
-    description: "Login page for VBOMS website"
-}
-Auth.getLayout = (page=Auth, data=metaData)=> setLayout({page, data, appName: "vboms"})
-
-export default Auth;
+export default Index;

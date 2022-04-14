@@ -1,11 +1,15 @@
 import test from "./test/testActions";
 import test2 from "./test2/testActions";
+import phoneCarrierActions from "./phoneCarriers/actions";
 import {vboms} from "./vboms";
+import {store} from "./store";
 
 export const actionTypes = {
     test,
     test2,
-    vboms
+    vboms,
+    store,
+    phoneCarrierActions
 }
 
 const callAction = (dispatch, allActions) => {
@@ -20,7 +24,7 @@ const callAction = (dispatch, allActions) => {
                     Object.entries(allActions[type][a]).map(([p, v])=>{
                         apps[p] = v(dispatch)
                     })
-                    actions[prop] = apps
+                    actions[a] = {...apps}
                 }
             }
             else{

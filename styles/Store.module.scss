@@ -1,5 +1,109 @@
-@import 'colors';
+@use 'colors';
 
-.highlightscss {
-	color: $primary;
+@mixin animate($animation, $duration, $times) {
+	animation: $animation $duration $times;
+}
+
+@mixin keyframes($name) {
+	@keyframes #{$name} {
+		@content;
+	}
+}
+.headerContainer {
+	display: flex;
+	flex-direction: column;
+
+	.mainHeader {
+		width: 100vw;
+		background-color: colors.$storePrimaryMedDark;
+		display: flex;
+		align-items: center;
+		position: relative;
+		height: 35px;
+
+		.logo {
+			font-size: 20px;
+			font-family: 'Courier New', monospace;
+			color: colors.$storeTertiaryLight;
+			font-weight: bold;
+			min-width: 200px;
+			width: 15vw;
+			margin-left: 20px;
+		}
+
+		.logo:hover {
+			cursor: pointer;
+		}
+
+		.navBar {
+			width: 100vw;
+			display: flex;
+
+			ul {
+				display: flex;
+				justify-content: space-evenly;
+				list-style: none;
+				width: 40vw;
+			}
+
+			.navLinks {
+				font-size: 13px;
+				color: colors.$storeTertiaryLight;
+			}
+
+			.navLinks:hover {
+				text-decoration: underline;
+			}
+
+			.login {
+				color: colors.$storeTertiaryLight;
+				background-color: transparent;
+				border: none;
+				font-size: 11px;
+			}
+
+			.login:hover {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+
+			.logout:hover {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.subHeader {
+		background-color: colors.$storePrimaryLight;
+		height: 30px;
+		display: flex;
+		width: 100vw;
+		justify-content: space-evenly;
+		align-items: center;
+
+		.subHeaderLinks {
+			color: colors.$storeTertiaryLight;
+		}
+
+		.subHeaderLinks:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	}
+}
+
+.app {
+	min-height: calc(60vh - 65px);
+}
+
+.footer {
+	height: 40vh;
+	width: 100vw;
+	background-color: colors.$storePrimaryMedDark;
+	border-top: 3px colors.$storeTertiaryLight solid;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	bottom: 0;
 }

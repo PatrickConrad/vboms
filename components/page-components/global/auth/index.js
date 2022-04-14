@@ -1,7 +1,9 @@
 import AuthBtn from './AuthBtn';
+import Credentials from './Credentials';
 
 const authComponents = {
-    AuthBtn
+    AuthBtn,
+    Credentials
 }
 
 export default authComponents

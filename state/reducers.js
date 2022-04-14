@@ -1,12 +1,16 @@
 import testReducer from "./test/testReducer";
 import testReducer2 from "./test2/testReducer";
 import vbomsReducer from "./vboms/vbomsReducer";
+import storeReducer from "./store/storeReducer";
+import phoneCarrierReducer from "./phoneCarriers/reducers";
 
 
 export const allReducers = {
     test: testReducer,
     test2: testReducer2,
-    vboms: vbomsReducer
+    vboms: vbomsReducer,
+    store: storeReducer,
+    phoneCarriers: phoneCarrierReducer
 }
 
 export const combineReducer = (reducers) => {
